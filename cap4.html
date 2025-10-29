@@ -5,30 +5,57 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Capítol 4 - Enllaços</title>
+    <style>
+      /* Centrar i posar el nom sota cada audio */
+      .audio-list { display:flex; flex-direction:column; gap:1rem; align-items:center; padding:0; margin:0; }
+      @media(min-width:700px){ .audio-list { flex-direction:row; justify-content:center; } }
+
+      figure.audio-row { margin:0.5rem; text-align:center; width:100%; max-width:560px; }
+      figure.audio-row audio { display:block; margin:0 auto; width:100%; max-width:560px; }
+      figure.audio-row figcaption { margin-top:0.5rem; font-family: Arial, Helvetica, sans-serif; }
+
+      /* Mostrar els 3 vídeos en línia i fer-los responsius */
+      .video-grid { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; align-items:flex-start; margin:1rem 0; }
+      .video-grid iframe { flex: 1 1 300px; width:100%; max-width:560px; aspect-ratio:16/9; border:0; }
+    </style>
   </head>
   <body>
     <h1>Capítol 4 — Enllaços</h1>
     <!-- Comentari: Exemples d'enllaços, rel, target, bookmarks -->
-    <h2>Enllaços interns (bookmarks)</h2>
+    <h2>Enllaços interns</h2>
     <ul>
-      <li><a href="#audio">Audio (bookmark)</a></li>
-      <li><a href="#video">Video (bookmark)</a></li>
+      <li><a href="#audio">Audio</a></li>
+      <li><a href="#video">Video</a></li>
     </ul>
 
     <section id="audio">
-      <h3>Audio (inserits a la mateixa pàgina)</h3>
-      <!-- Comentari: Afegir 3 audios amb controls (fitxers placeholders a /audio) -->
-      <audio controls src="audio/sample1.mp3">El teu navegador no suporta l'element audio.</audio><br/>
-      <audio controls src="audio/sample2.mp3">El teu navegador no suporta l'element audio.</audio><br/>
-      <audio controls src="audio/sample3.mp3">El teu navegador no suporta l'element audio.</audio>
+      <h3>Audios</h3>
+      <!-- Comentari: Afegir 3 audios amb controls i nom sota -->
+      <div class="audio-list">
+        <figure class="audio-row">
+          <audio controls src="audio/M3 E92 V8.mp3">El teu navegador no suporta l'element audio.</audio>
+          <figcaption>BMW M3 E92 V8</figcaption>
+        </figure>
+
+        <figure class="audio-row">
+          <audio controls src="audio/Idea 22.mp3">El teu navegador no suporta l'element audio.</audio>
+          <figcaption>Idea 22 - Gibran Alcover</figcaption>
+        </figure>
+
+        <figure class="audio-row">
+          <audio controls src="audio/Meditació.mp3">El teu navegador no suporta l'element audio.</audio>
+          <figcaption>Meditació</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section id="video">
-      <h3>Vídeo (iframes de YouTube embeguts)</h3>
-      <!-- Comentari: Exemple correcte d'iframe embed (utilitzar format /embed/) -->
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/rbuYtrNUxg4" title="Curso HTML para Principiantes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/bEDyP3rxPfA" title="Ruthless Piano" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Example Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h3>Vídeos</h3>
+      <div class="video-grid">
+        <iframe src="https://www.youtube.com/embed/5MuIMqhT8DM" title="Sleep Is Your Superpower" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/3X30vGbLol8" title="Dime cómo hablas y te diré quién eres" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/w-HYZv6HzAs" title="The skill of self confidence" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </section>
 
     <p><a href="index_DocTreball.html">Tornar a l'índex</a></p>
