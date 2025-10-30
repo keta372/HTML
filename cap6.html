@@ -7,43 +7,90 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Capítol 6 - Imatges i objectes</title>
     <style>
-      /* Comentari CSS: estil per centrar i fer les imatges més grans */
-      body { text-align: center; font-family: Arial, Helvetica, sans-serif; }
-      figure { display: inline-block; margin: 1rem; }
-      figure img { width: 600px; max-width: 100%; height: auto; display: block; }
-      figcaption { text-align: center; margin-top: 0.5rem; }
-      /* Estil per a la descripció del Renault Clio V6 i Everest */
-      figure p.descripcion {
-        max-width: 600px;
-        margin: 0.5rem auto 0;
+      /* Estils generals */
+      :root {
+        --img-height: 360px;
+        --img-max-width: 600px;
+      }
+
+      body {
         text-align: center;
-        font-size: 0.95rem;
-        color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 1.5rem;
+        background: #fafafa;
+      }
+
+      h1 { margin-bottom: 1.25rem; }
+
+      /* Galeria: les figures s'alineen per la base perquè quedin a la mateixa altura */
+      main.gallery {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: flex-end;
+      }
+
+      figure {
+        width: min(48%, var(--img-max-width));
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fff;
+        border-radius: 8px;
+        padding: 0.75rem;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      }
+
+      /* Contenidor d'imatge per forçar la mateixa alçada visual */
+      .image-wrap { order: 1; width: 100%; height: var(--img-height); overflow: hidden; display: flex; align-items: center; justify-content: center; border-radius: 6px; background: #e9eef6; }
+
+      figure img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+      }
+
+      figcaption { order: 2; margin: 0.5rem 0 0.25rem; font-weight: 700; color: #0b4666; }
+
+      p.descripcion { order: 3; max-width: 100%; margin: 0; padding-top: 0.25rem; text-align: center; font-size: 0.95rem; color: #333; line-height: 1.45; }
+
+      @media (max-width: 700px) {
+        figure { width: 100%; }
       }
     </style>
   </head>
   <body>
     <h1>Capítol 6 — Imatges i objectes</h1>
-    <!-- Comentari: Inserir dues imatges representatives amb alt -->
-    <figure>
-      <img src="images/Everest.jpg" alt="Everest">
-      <p class="descripcion">
-        El <strong>Mont Everest</strong> amb els seus <strong>8.848 metres d’altura</strong>, és el somni de molts alpinistes i aventurers de tot el planeta. Aquest gegant desafia tot aquell que vol conquerir-lo amb el seu clima extrem, els vents gelats i el terreny inhòspit. Ascendir-lo és una proesa que requereix una preparació mental i física brutal, però la recompensa és incomparable: una vista espectacular que sembla abraçar l’infinit.
-        <br><br>
-        Les seves <strong>pendents glacials</strong> i les condicions adverses han creat una llegenda, una muntanya que no només és un desafiament físic, sinó també espiritual. L' Everest ha estat testimoni de moltes històries de superació i tragèdies, però també de l’esperança i la força humana per arribar a l’inimaginable. Si algun lloc pot fer-te sentir petit i, alhora, més gran que mai, és sens dubte l'<strong>Everest</strong>.
-      </p>
-      <figcaption>Everest</figcaption>
-    </figure>
 
-    <figure>
-      <img src="images/Renault-Clio-V6.jpg" alt="Renault Clio V6">
-      <p class="descripcion">
-        El <strong>Renault Clio V6</strong> és una joia poc convencional, un cotxe compacte que es converteix en una bèstia de carretera. Amb el seu motor <strong>V6 de 3.0 litres</strong> a la part posterior, ofereix una potència de <strong>230 CV</strong> que el fa sentir com una màquina de competició, tot en un cos petit i àgil. Quan arrenca, la seva acceleració et fa sentir cada cavall com una explosió de força pura, i les seves prestacions són tan bones com qualsevol cotxe esportiu de gamma alta.
-        <br><br>
-        El disseny exterior és agressiu, amb línies amples, un para-xocs gran i una estètica que crida l'atenció. El Clio V6 no passa desapercebut; fa saber que estàs darrere d'un vehicle especial. I dins, tot i ser esportiu, encara conserva comoditat per als ocupants, amb una conducció precisa i una estabilitat que et fa sentir en control, fins i tot a les velocitats més altes.
-        És un cotxe pensat per aquells que busquen emoció, però amb la garantia que cada detall està pensat per oferir una experiència única i excitant.
-      </p>
-      <figcaption>Renault Clio V6</figcaption>
-    </figure>
+    <main class="gallery">
+      <figure>
+        <div class="image-wrap">
+          <img src="images/Everest.jpg" alt="Everest">
+        </div>
+        <p class="descripcion">
+          El <strong>Monte Everest</strong> és el rei de totes les muntanyes, el sostre del món. Amb els seus <strong>8.848 metres d’altura</strong>, és el somni de molts alpinistes i aventurers de tot el planeta. Aquest gegant, situat a la frontera entre <strong>Nepal</strong> i <strong>Tibet</strong>, desafia tot aquell que vol conquerir-lo amb el seu clima extrem, els vents gelats i el terreny inhòspit. Ascendir-lo és una proesa que requereix una preparació mental i física brutal, però la recompensa és incomparable: una vista espectacular que sembla abraçar l’infinit.
+          <br><br>
+          Les seves <strong>pendents glacials</strong> i les condicions adverses han creat una llegenda, una muntanya que no només és un desafiament físic, sinó també espiritual. El Everest ha estat testimoni de moltes històries de superació i tragèdies, però també de l’esperança i la força humana per arribar a l’inimaginable. Si algun lloc pot fer-te sentir petit i, alhora, més gran que mai, és sens dubte <strong>Everest</strong>.
+        </p>
+        <figcaption>Everest</figcaption>
+      </figure>
+
+      <figure>
+        <div class="image-wrap">
+          <img src="images/Renault-Clio-V6.jpg" alt="Renault Clio V6">
+        </div>
+        <p class="descripcion">
+          El <strong>Renault Clio V6</strong> és una autèntica icona del món dels cotxes esportius compactes. La seva combinació de potència, disseny atrevit i rendiment excepcional el converteix en un vehicle que ofereix una experiència única. Amb un motor <strong>V6 de 3.0 litres</strong> situat a la part posterior, aquest petit monstre pot accelerar de 0 a 100 km/h en un temps que et farà sentir com si estiguessis volant.
+          <br><br>
+          Amb el seu aspecte robust, el Clio V6 no només és un cotxe per conduir, sinó una obra d'art sobre rodes, un símbol de passió i rendiment. Tot i la seva mida compacta, no et deixis enganyar; és una bèstia dissenyada per als més apassionats, aquells que busquen emoció pura i sensacions extremes.
+          Avui en dia, cotxes com el Clio V6 són cada cop més difícils de trobar, i és que aquest model representa una època on el caràcter i l’esperit esportiu prevalien sobre els estàndards de la indústria. És una joia que, sens dubte, farà somiar a qualsevol amant de l'automòbil.
+        </p>
+        <figcaption>Renault Clio V6</figcaption>
+      </figure>
+    </main>
   </body>
 </html>
